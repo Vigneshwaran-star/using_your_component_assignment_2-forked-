@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
-
+import Postcard from './components/postcard'
 function App() {
 
   const initialPosts = [
@@ -31,7 +30,14 @@ function App() {
 
   return (
     <>
-      
+      <div className='grid grid-cols-3 gap-8'>
+        {
+          initialPosts.map((post)=>(
+        <Postcard key={post.id} profileImage={post.profileImage} username={post.username} content={post.content} isLiked={post.isLiked}></Postcard>
+
+          ))
+        }
+      </div>
     </>
   )
 }
